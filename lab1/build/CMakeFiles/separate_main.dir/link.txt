@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/separate_main.dir/separate_main.cc.o  -o separate_main liblab/libliblab.a 

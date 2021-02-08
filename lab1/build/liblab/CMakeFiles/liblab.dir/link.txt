@@ -1,0 +1,2 @@
+/usr/bin/ar qc libliblab.a  CMakeFiles/liblab.dir/coding.cc.o CMakeFiles/liblab.dir/decode.cc.o CMakeFiles/liblab.dir/encode.cc.o CMakeFiles/liblab.dir/list.cc.o CMakeFiles/liblab.dir/separate_fn.cc.o
+/usr/bin/ranlib libliblab.a

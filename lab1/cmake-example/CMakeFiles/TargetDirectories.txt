@@ -1,0 +1,6 @@
+/home/dennis/repo/cppLTH/lab1/cmake-example/CMakeFiles/rebuild_cache.dir
+/home/dennis/repo/cppLTH/lab1/cmake-example/CMakeFiles/SimpleMain.dir
+/home/dennis/repo/cppLTH/lab1/cmake-example/CMakeFiles/edit_cache.dir
+/home/dennis/repo/cppLTH/lab1/cmake-example/testlib/CMakeFiles/rebuild_cache.dir
+/home/dennis/repo/cppLTH/lab1/cmake-example/testlib/CMakeFiles/TestLib.dir
+/home/dennis/repo/cppLTH/lab1/cmake-example/testlib/CMakeFiles/edit_cache.dir

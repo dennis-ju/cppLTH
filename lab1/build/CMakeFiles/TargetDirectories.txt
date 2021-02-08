@@ -1,0 +1,10 @@
+/home/dennis/repo/cppLTH/lab1/build/CMakeFiles/rebuild_cache.dir
+/home/dennis/repo/cppLTH/lab1/build/CMakeFiles/ltest.dir
+/home/dennis/repo/cppLTH/lab1/build/CMakeFiles/hello.dir
+/home/dennis/repo/cppLTH/lab1/build/CMakeFiles/separate_main.dir
+/home/dennis/repo/cppLTH/lab1/build/CMakeFiles/print_argv.dir
+/home/dennis/repo/cppLTH/lab1/build/CMakeFiles/test_coding.dir
+/home/dennis/repo/cppLTH/lab1/build/CMakeFiles/edit_cache.dir
+/home/dennis/repo/cppLTH/lab1/build/liblab/CMakeFiles/rebuild_cache.dir
+/home/dennis/repo/cppLTH/lab1/build/liblab/CMakeFiles/liblab.dir
+/home/dennis/repo/cppLTH/lab1/build/liblab/CMakeFiles/edit_cache.dir

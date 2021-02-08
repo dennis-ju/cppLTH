@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../liblab/coding.h
+
+/home/dennis/repo/cppLTH/lab1/test_coding.cc
+iostream
+-
+coding.h
+/home/dennis/repo/cppLTH/lab1/coding.h
+string
+-
+cassert
+-
+

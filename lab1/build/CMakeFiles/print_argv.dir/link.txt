@@ -1,0 +1,1 @@
+/usr/bin/c++  -g   CMakeFiles/print_argv.dir/print_argv.cc.o  -o print_argv liblab/libliblab.a 

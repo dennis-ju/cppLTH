@@ -1,0 +1,16 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+../liblab/list.h
+
+/home/dennis/repo/cppLTH/lab1/ltest.cc
+iostream
+-
+list.h
+/home/dennis/repo/cppLTH/lab1/list.h
+

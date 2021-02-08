@@ -8,9 +8,9 @@ set(CMAKE_BUILD_TYPE Debug)
 # set(CMAKE_BUILD_TYPE RelWithDebInfo)
 
 # add the library to the include file search path
-include_directories ("${PROJECT_SOURCE_DIR}/testlib")
+include_directories ("${PROJECT_SOURCE_DIR}/liblab")
 
-add_subdirectory (testlib) 
+add_subdirectory (liblab) 
 
 # set compiler and linker flags
 add_compile_options("-Og")
@@ -18,8 +18,16 @@ add_compile_options("-Og")
 #link_libraries("-fsanitize=address")
 
 # add the executable
-add_executable(SimpleMain main.cc)
-target_link_libraries (SimpleMain TestLib)
+add_executable(hello hello.cc)
+target_link_libraries (hello liblab)
+add_executable(ltest ltest.cc)
+target_link_libraries (ltest liblab)
+add_executable(print_argv print_argv.cc)
+target_link_libraries (print_argv liblab)
+add_executable(separate_main separate_main.cc)
+target_link_libraries (separate_main liblab)
+add_executable(test_coding test_coding.cc)
+target_link_libraries (test_coding liblab)
 
 ##################### Optional features below this line ############
 
@@ -33,10 +41,6 @@ set (Simple_VERSION_MINOR 0)
 # to the source code. Only needed if we want to pass some
 # information or configuration from Cmake to the program 
 # being built.
-configure_file (
-  "${PROJECT_SOURCE_DIR}/SimpleConfig.h.in"
-  "${PROJECT_BINARY_DIR}/SimpleConfig.h"
-  )
 
 # add the binary tree to the search path for include files
 # so that we will find SimpleConfig.h
