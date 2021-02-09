@@ -10,14 +10,15 @@ using std::string;
 using std::vector;
 
 const int LENGTH_LIMIT = 25;
+const int NBR_OF_SUGGESTIONS = 5;
 
 class Dictionary
 {
 public:
 	Dictionary();
 	bool contains(const string &word) const;
-	void add_trigram_suggestions(vector<string> suggestions, const string &word) const;
-	void rank_suggestions(vector<string> suggestions, const string &word) const;
+	void add_trigram_suggestions(vector<string> &suggestions, const string &word) const;
+	void rank_suggestions(vector<string> &suggestions, const string &word) const;
 	vector<string> get_suggestions(const string &word) const;
 
 private:
