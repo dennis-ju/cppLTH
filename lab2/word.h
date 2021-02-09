@@ -16,8 +16,8 @@ public:
 	 in this word's trigram vector */
 	unsigned int get_matches(const std::vector<std::string>& t) const;
 private:
-	const std::string word;
-	const std::vector<std::string> tri;
+	std::string word;
+	std::vector<std::string> tri;
 };
 
 #endif

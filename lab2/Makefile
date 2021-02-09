@@ -21,7 +21,7 @@ LDFLAGS =   -g
 #LDFLAGS +=  -stdlib=libc++
 
 # Targets
-PROGS = preprocess spell
+PROGS = spell preprocess
 
 all: $(PROGS)
 
