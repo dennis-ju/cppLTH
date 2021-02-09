@@ -17,6 +17,7 @@ public:
 	Dictionary();
 	bool contains(const string &word) const;
 	void add_trigram_suggestions(vector<string> suggestions, const string &word) const;
+	void rank_suggestions(vector<string> suggestions, const string &word) const;
 	vector<string> get_suggestions(const string &word) const;
 
 private:

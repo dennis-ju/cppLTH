@@ -31,7 +31,6 @@ Dictionary::Dictionary()
 			position += 3;
 		}
 
-
 		vector<Word> v{words[w.size()]};
 		v.insert(words[w.size()].end(), Word(w, tri));
 		all_words.insert(w);
@@ -52,24 +51,25 @@ void Dictionary::add_trigram_suggestions(vector<string> suggestions, const strin
 {
 	int size = word.size();
 	int nbr_tri = size - 2;
-	unsigned int half_tri = (nbr_tri + 1)/2;
+	unsigned int half_tri = (nbr_tri + 1) / 2;
 
-	if(size > LENGTH_LIMIT) {
+	if (size > LENGTH_LIMIT)
+	{
 		return;
 	}
 
 	vector<string> tri;
-	for(int i = 0; i < nbr_tri; i++)
+	for (int i = 0; i < nbr_tri; i++)
 	{
-		tri.insert(tri.end(), word.substr(i, 3)); 
+		tri.insert(tri.end(), word.substr(i, 3));
 	}
 	sort(tri.begin(), tri.end());
 
-	for(int i = size-1; i <= size + 1; i++)
+	for (int i = size - 1; i <= size + 1; i++)
 	{
-		for(int j = 0; j < static_cast<int>(words[i].size()); j++)
+		for (int j = 0; j < static_cast<int>(words[i].size()); j++)
 		{
-			if(words[i][j].get_matches(tri) >= half_tri)
+			if (words[i][j].get_matches(tri) >= half_tri)
 			{
 				suggestions.insert(tri.end(), words[i][j].get_word());
 			}
@@ -77,13 +77,51 @@ void Dictionary::add_trigram_suggestions(vector<string> suggestions, const strin
 	}
 }
 
+int get_score(const string &w1, const string &w2)
+{
+	int d[LENGTH_LIMIT + 1][LENGTH_LIMIT + 1];
+	for (int i = 0; i <= LENGTH_LIMIT; i++)
+	{
+		d[0][i] = i;
+		d[i][0] = i;
+	}
+
+	for (unsigned int i = 0; i <= w1.size(); i++)
+	{
+		for (unsigned int j = 0; j <= w2.size(); j++)
+		{
+			int skip = (w1.at(i) == w2.at(j)) ? d[i - 1][j - 1] : d[i - 1][j - 1] + 1;
+			int min = std::min(d[i - 1][j] + 1, skip);
+			min = std::min(d[i][j - 1] + 1, min);
+		}
+	}
+
+	return d[w1.size()][w2.size()];
+}
+
+void Dictionary::rank_suggestions(vector<string> suggestions, const string &word) const
+{
+	vector<std::pair<int, string>> ranked;
+	for (unsigned int i = 0; i < suggestions.size(); i++)
+	{
+		ranked.push_back(make_pair(get_score(word, suggestions[i]), word));
+	}
+
+	sort(ranked.begin(), ranked.end());
+
+	for (unsigned int i = 0; i < suggestions.size(); i++)
+	{
+		suggestions[i] = ranked[i].first;
+	}
+}
+
 vector<string> Dictionary::get_suggestions(const string &word) const
 {
-	
+
 	vector<string> suggestions;
 	add_trigram_suggestions(suggestions, word);
-	/*
 	rank_suggestions(suggestions, word);
+	/*
 	trim_suggestions(suggestions);
 	*/
 	return suggestions;
