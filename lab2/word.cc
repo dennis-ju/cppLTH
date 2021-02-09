@@ -1,6 +1,7 @@
 #include <string>
 #include <vector>
 #include "word.h"
+#include <iterator>
 
 using std::string;
 using std::vector;
@@ -14,20 +15,31 @@ string Word::get_word() const
 
 unsigned int Word::get_matches(const vector<string> &t) const
 {
-	int count{0};
-	for (int i = 0; t.size(); i++)
+	if (tri.size() == 0 || t.size() == 0)
 	{
-		for (int j = 0; tri.size(); j++)
-		{
-			if(t[i].compare(tri[j]) > 0)
-			{
-				break;
-			}
-			if(t[i] == tri[j]) {
-				count++;
-				break;
-			}
+		return 0;
+	}
 
+	int count{0};
+	auto a = tri.begin();
+	auto b = t.begin();
+
+	while (a != tri.end() && b != t.end())
+	{
+		int cmp = (*a).compare(*b);
+		if (cmp == 0)
+		{
+			count++;
+			a++;
+			b++;
+		}
+		else if (cmp > 0)
+		{
+			b++;
+		}
+		else if (cmp < 0)
+		{
+			a++;
 		}
 	}
 	return count;

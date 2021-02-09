@@ -28,7 +28,7 @@ all: $(PROGS)
 # Targets rely on implicit rules for compiling and linking
 preprocess: preprocess.o
 dictionary: dictionary.o word.o
-spell: spell.o dictionary.o
+spell: spell.o dictionary.o word.o
 word: word.o
 
 # Phony targets
