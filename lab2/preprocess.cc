@@ -1,27 +1,25 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <algorithm>
+#include <vector>
 
 std::string get_trigram(const std::string s)
 {
-    int size = s.size();
-    std::string ret{s + " " + std::to_string(size - 2)};
-    int i;
-    for(i = 0; i < size-2; i++)
-    {
-        ret = ret + " " + s.substr(i,3);
-    }
-    return ret;
-}
+    int size = s.size() - 2;
+    size = (size < 0) ? 0 : size; 
+    std::vector<std::string> tri;
+    std::string ret{s + " " + std::to_string(size)};
 
-std::string to_lower(std::string s)
-{
-    int size = s.size();
-    std::string ret{""};
     for(int i = 0; i < size; i++)
-    {     
-        char c = tolower(s.at(i));
-        ret = ret + c;
+    {
+        tri.insert(tri.begin(), s.substr(i,3));
+    }
+
+    std::sort(tri.begin(), tri.end());
+    for(int i = 0; i < size; i++)
+    {
+        ret = ret + " " + tri[i];
     }
     return ret;
 }
@@ -34,7 +32,8 @@ int main()
     std::string s;
     while(std::getline(infile, s))
     {
-        outfile << get_trigram(to_lower(s)) << '\n';
+        std::transform(s.begin(), s.end(), s.begin(), ::tolower);
+        outfile << get_trigram(s) << '\n';
     }
     infile.close();
     outfile.close();
