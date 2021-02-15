@@ -6,7 +6,7 @@ set (CMAKE_CXX_STANDARD 11)
 set(CMAKE_BUILD_TYPE Debug)
 # or to get an optimized build w/ debug symbols
 # set(CMAKE_BUILD_TYPE RelWithDebInfo)
-
+find_package
 # add the library to the include file search path
 include_directories ("${PROJECT_SOURCE_DIR}/liblab")
 

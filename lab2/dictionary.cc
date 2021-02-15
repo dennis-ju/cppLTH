@@ -89,8 +89,7 @@ int get_score(const string &w1, const string &w2)
 		for (unsigned int j = 1; j <= w2.size(); j++)
 		{
 			int skip = (w1[i-1] == w2[j-1]) ? d[i - 1][j - 1] : d[i - 1][j - 1] + 1;
-			int min = std::min(d[i - 1][j] + 1, skip);
-			min = std::min(d[i][j - 1] + 1, min);
+			int min = std::min({d[i - 1][j] + 1, skip, d[i][j - 1] + 1});
 			d[i][j] = min;
 		}
 	}
