@@ -16,4 +16,8 @@ private:
 	static int daysPerMonth[12]; // number of days in each month
 };
 
+std::ostream &operator<<(std::ostream &os, const Date &dt);
+
+std::istream &operator>>(std::istream &is, Date &dt);
+
 #endif
